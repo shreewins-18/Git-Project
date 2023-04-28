@@ -1,0 +1,763 @@
+DAY 1
+======
+Java 
+Features:
+1. Robust
+2. Platform independent - can be run in different machines like Linux
+Mac, Windows etc.
+3. Object Oriented
+4. Secured
+5. Multi-threaded
+
+example
+=======
+package mydemos;
+
+//java.lang is the default package in java
+
+import java.lang.*;//default package in java. import all the classes packages...
+
+import java.lang.System;//import specific classes! improves the performance of the JVM!
+import java.lang.String;
+
+//package,import,class=>correct order
+/*
+ * Package:
+ * group of similar types  of classes , interfaces and sub-packages.
+ * --used for preventing naming conflicts!
+
+ * void::the particular method does not return any value
+ * main: entry point method for java 
+ * static::doesn't require any object! used for memory management!
+ * memory allocated by default by the JVM
+ */
+//Compiler :: convert the java code(.java) to byte code(.class)
+//Interpreter(JIT(JUST-IN-TIME COMPILER)):: convert the byte code to machine(os specific) code
+
+//2 types of error:: compilation(silly programming mistakes) , runtime(logical mistakes) 
+
+//Outer classes/top level classes cannot be private and protected/static!!!!
+
+//class Sample//class default access specifier is "default"(package)!!!
+//public access specifier:: filename and classname must be same!!
+//public class Sample12//compilation Error =>Sample12.class but at the runtime it will lookup Sample.class
+public class Sample  //Bytecode filename:: Sample.class 
+{
+
+	public static void main(String[] args) //Command line arguments(String array!)
+	{
+		/*
+		 * class System
+		 * {
+		 * static PrintStream out;
+		 * }
+		 */
+
+		//System is a built in java-class
+		//out is a STATIC reserved object of java.io.PrintStream class
+		//println is a method of PrintStream class
+
+		System.out.println("Hello Java CHENNAI COMCAST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+	
+	}
+}
+=============================================================================================
+
+package mydemos;
+/*
+ * Primitive data types::
+* 
+ * boolean(true or false(default))ex:boolean attendance;boolean result;
+ * byte(1 byte)
+ * short(2 byte)
+ * int (4 bytes) EX: int salary;
+ * long(8 bytes)
+ * float (4 bytes)
+ * double(8 bytes)
+ * char(2 bytes)->UNICODE CHARACTER SET->0 TO 65535(ASCII 0 to 255 c,c++)
+ */
+
+class DataTypes// access specifier of this class is "default/package"
+{
+	public static void main(String[] args) {
+		byte amount = 50;
+		short amount1 = 565;
+		int salary = 565699;
+		long score = 545456465;// considering as a INT DATA TYPE
+
+		/*
+		 * int is the default integral datatype in java If the value exceeds the int
+		 * limit,then long datatype expect suffix either L or l.
+		 */
+
+		long score1 = 45345435435L;// now its exactly as LONG!
+		long rating = 4L;// long data type
+
+		boolean attendance = false;// absent
+		String name = "Karpagavalli";// Built in class
+		String location = "Tambaram" + " " + " Tamilnadu" + " " + " India";
+
+		// C,C++=>ASCII CHARACTER SET, 1 bytes
+		// JAVA=>UNICODE CHARACTER SET , 2 BYTES , 0 TO 65535(stand alone
+		// application+enterprise(web) application)
+
+		char grade = 'A';
+
+		System.out.println(attendance);
+		System.out.println("Attendance Status:: " + attendance);
+
+		System.out.println("Integral values:: " + amount + " " + amount1 + " " + salary + " " + score + " " + rating
+				+ " " + score1);
+		System.out.println("Grade:: " + grade + " " + "Name:: " + name + " " + "Location:: " + location);
+
+		//default floating point is DOUBLE!!!
+		//suffix F or f is mandatory for float values!!
+		//double suffix D or d is optional!
+
+		float price = 5600.50F;
+		double rate=56050.34;//d is optional
+		double rate1=56050.34D;//d is optional
+
+		float rate2=4545;//no decimal points so suffix f is not required
+		System.out.println("Floating point:: "+price+ " "+rate+ " "+rate1+ " "+rate2);
+		
+		
+	}
+
+}
+/*
+false
+Attendance Status:: false
+Integral values:: 50 565 565699 545456465 4 45345435435
+Grade:: A Name:: Karpagavalli Location:: Tambaram  Tamilnadu  India
+Floating point:: 5600.5 56050.34 56050.34 4545.0
+*/
+===========================================================================================================================
+
+
+Day 2
+======
+
+package mydemos;
+/*
+ * In Java, there are two types of casting:
+
+Widening or implicit Casting (automatically) - converting a smaller type to a larger type size. 
+byte -> short -> char -> int -> long -> float -> double.
+
+Narrowing or explicitCasting (manually) - converting a larger type to a smaller size type. 
+double -> float -> long -> int -> char -> short -> byte.
+ */
+public class TypeConversion {
+
+	public static void main(String[] args) {
+		//implicit type conversion
+		int i=100;
+		long a=i;
+		float b=a;
+		System.out.println(i + " "+a + " "+b);	
+
+		int i1=34349958;
+		byte b1=(byte)i1;
+		//explicit type casting
+	System.out.println(i1 + " "+b1);//data truncated and lost!!!
+	
+	byte b2=55;
+	float f1=4343.43f;
+	float f2=b2*f1;//expression type promotion!!
+	System.out.println(b2 + " "+f1+ " "+f2);
+	
+	System.out.println(534535.453453);//by default it is Double
+	System.out.println((float)534535.453453);//convert  double to float
+
+	//valid=>convert to UNICODE CHARACTER SET(0-65535)
+	//A-Z 65-90, a-z 97-122
+
+	char a3=65;
+	char b3=97;
+	System.out.println("Char:: "+a3+ " "+b3);
+	
+	//char hh=43.43f;//invalid
+	
+	//Increment and decrement in char data type!
+	a3++;
+	b3++;
+	System.out.println("Char(++):: "+a3+ " "+b3);
+
+	a3--;
+	b3--;
+	System.out.println("Char(--):: "+a3+ " "+b3);
+
+	int n=90;
+	//char b11=n;//invalid
+	char b11=(char)n;
+	System.out.println("Char:: "+b11);
+		
+	}
+
+}
+/*
+100 100 100.0
+34349958 -122
+55 4343.43 238888.66
+534535.453453
+534535.44
+Char:: A a
+Char(++):: B b
+Char(--):: A a
+Char:: Z
+*/
+=================================================================
+package mydemos;
+
+public class ConditionalStatements {
+	public static void main(String[] args) {
+		// RELATIONAL or COMPARISON OPERATORS::>,>=,<,<=,==,!=
+		if (12 > 2) {
+			if (34 < 2) {
+				System.out.println("Inner If block is bigger!");
+			} else {
+				System.out.println("Inner if..else block");
+			}
+		} else {
+			System.out.println("Over!!");
+		}
+
+		//while loop=>ENTRY CONTROLLED LOOP
+		int i=1;
+		while(i<=6)
+		{
+			System.out.print(i+ " ");
+			i++;
+		}
+
+		//dowhile loop=>EXIT CONTROLLED LOOP
+		int j=100;
+		do
+		{
+			System.out.print("\n"+j);
+			j++;
+		}while(j>=150);
+		
+		System.out.println();// newline
+		
+		//for loop
+		for(int k=0;k<=5;k++)
+		{
+			System.out.print(" "+k);
+		}
+
+		System.out.println("For Loop Without Increment::");
+		int k=1;
+		for(k=2;k<=5;)
+		{
+			System.out.print(k+ " ");
+			k++;
+		}
+
+		System.out.println("\nFor Loop Contains SOP");
+		//{} IS MISSING INSTEAD OF THAT ;
+		for(int j1=1;j1<=5;System.out.println(j1++))
+			;
+
+
+		System.out.println("Multiple for loop declarations::");
+		//&&-Logical AND operator
+		//T T=>T,T F=>F,F T=>F,F F=>F
+
+		for(int y1=-1,y2=51;y1<=5&&y2>0;y1++,y2--)
+		{
+			System.out.println(y1+ " "+y2);
+		}
+
+		System.out.println("Break Keyword::");
+		for(int u1=1;u1<=5;u1++)
+		{
+		if (u1==3)			
+		{
+			break;//terminate the current loop
+		}
+		System.out.print(u1 + " ");
+		}
+		System.out.println("Stop!");
+
+
+		System.out.println("Continue Keyword::");
+		for(int u1=1;u1<=5;u1++)
+		{
+		if (u1==3)			
+		{
+			continue;//skip the remaining part of the loop but continue the iteration
+		}
+		System.out.print(u1 + " ");
+		}
+		System.out.println("Done!");
+
+		//conditional operator or ternary operator(?:)
+		//alternative of if..else
+		int r=40,y=20;
+		String res=(r>y)?r+ " is bigger ":y+ " is smaller";
+		System.out.println("Ternary:: "+res);
+		
+		//nested ternary operator
+		int a4=78,b4=734,c4=400,largest;
+		largest=a4>b4?(a4>c4?a4:c4):(b4>c4?b4:c4);
+		System.out.println("Largest:"+largest);
+
+		/*
+		 * Switch case::
+		 * --Menu based model
+		 * --looks like if..else
+		 * --byte,short,int,char,String supported
+		 * --case value must be unique
+		 * --float and double are not supported
+		 * --default block is optional
+		 */
+		int no=10;
+		String rating="";
+		switch(no)
+		{
+		//default can be refer anywhere in switch case!
+		default:
+			System.out.println("Invalid option!");
+			break;
+		case 8:
+				rating="good";
+				break;
+		case 101:
+				rating="Excellent";
+				break;
+				//2 case contains same logic
+				//empty case!!!no break keyword
+		case 10:
+				//break;
+		case 20:
+				rating="Nice";
+				break;		
+		}
+		System.out.println("Rating:: "+rating);
+
+	}
+}
+/*
+Inner if..else block
+1 2 3 4 5 6 
+100
+ 0 1 2 3 4 5For Loop Without Increment::
+2 3 4 5 
+For Loop Contains SOP
+1
+2
+3
+4
+5
+Multiple for loop declarations::
+-1 51
+0 50
+1 49
+2 48
+3 47
+4 46
+5 45
+Break Keyword::
+1 2 Stop!
+Continue Keyword::
+1 2 4 5 Done!
+Ternary:: 40 is bigger 
+Largest:734
+Rating:: Nice
+*/
+====================================================================================
+package mydemos;
+//No GOTO statement but Label concept available
+
+public class LabelDemo {
+
+	public static void main(String[] args) {
+		for(int i=1;i<=3;i++)
+		{
+			for(int j=1;j<=4;j++)
+			{
+				if (j==3)
+				{
+					break;//break the current inner for loop
+				}
+				System.out.println("Value i:: "+i + " "+ "Value j:: "+j);
+			}
+			System.out.println("Outside Inner For Loop");
+		}//outer for loop completion
+		System.out.println("Completed!");
+	
+		System.out.println();
+
+		for(int i=1;i<=3;i++)
+		{
+			for(int j=1;j<=4;j++)
+			{
+				if (j==3)
+				{
+					continue;
+				}
+				System.out.println("Value i:: "+i + " "+ "Value j:: "+j);
+			}
+			System.out.println("Outside Inner For Loop");
+		}//outer for loop completion
+		System.out.println("Completed!");
+		
+		System.out.println();
+
+		System.out.println("BREAK WITH LABEL:::::::::::");
+		comcast://label name of the outer for loop
+		for(int i=1;i<=3;i++)
+		{
+			for(int j=1;j<=4;j++)
+			{
+				if (j==3)
+				{
+					break comcast;
+				}
+				System.out.println("Value i:: "+i + " "+ "Value j:: "+j);
+			}
+			System.out.println("Outside Inner For Loop");
+		}//outer for loop completion
+		System.out.println("Completed!");
+		
+		System.out.println();
+
+		System.out.println("CONTINUE WITH LABEL:::::::::::");
+
+		comcast1://label name of the outer for loop
+		for(int i=1;i<=3;i++)
+		{
+			for(int j=1;j<=4;j++)
+			{
+				if (j==3)
+				{
+					continue comcast1;
+				}
+				System.out.println("Value i:: "+i + " "+ "Value j:: "+j);
+			}
+			System.out.println("Outside Inner For Loop");
+		}//outer for loop completion
+		System.out.println("Completed!");
+
+	}
+
+}
+/*
+Value i:: 1 Value j:: 1
+Value i:: 1 Value j:: 2
+Outside Inner For Loop
+Value i:: 2 Value j:: 1
+Value i:: 2 Value j:: 2
+Outside Inner For Loop
+Value i:: 3 Value j:: 1
+Value i:: 3 Value j:: 2
+Outside Inner For Loop
+Completed!
+
+Value i:: 1 Value j:: 1
+Value i:: 1 Value j:: 2
+Value i:: 1 Value j:: 4
+Outside Inner For Loop
+Value i:: 2 Value j:: 1
+Value i:: 2 Value j:: 2
+Value i:: 2 Value j:: 4
+Outside Inner For Loop
+Value i:: 3 Value j:: 1
+Value i:: 3 Value j:: 2
+Value i:: 3 Value j:: 4
+Outside Inner For Loop
+Completed!
+
+BREAK WITH LABEL:::::::::::
+Value i:: 1 Value j:: 1
+Value i:: 1 Value j:: 2
+Completed!
+
+CONTINUE WITH LABEL:::::::::::
+Value i:: 1 Value j:: 1
+Value i:: 1 Value j:: 2
+Value i:: 2 Value j:: 1
+Value i:: 2 Value j:: 2
+Value i:: 3 Value j:: 1
+Value i:: 3 Value j:: 2
+Completed!
+*/
+=========================================================================================
+package mydemos;
+
+/*
+ * CommandLineArguments:
+ * -Passing some argument or input during the execution(runtime) of the program
+ * --Runtime input(Array of Strings)
+ * --default delimiter is white space!
+
+*/
+//ex: ping 192.167.656.656
+//CommandLineArguments 45 5 54 7 devi chennai java 546.76 
+
+//Rightclick->Run as ->Run configurations->Click Arguments tab->In program arguments give value=>click run button!
+
+public class CommandLineArguments {
+	public static void main(String[] a) {
+		System.out.println("CmdLine Length:: "+a.length);//objectname.datamember
+		if(a.length==0)
+		{
+			System.out.println("No Inputs passed!");
+		}
+		else
+		{
+			for(int i=0;i<a.length;i++)
+			{
+				System.out.println("Argument["+i+"]:"+a[i]);
+			}
+		}	
+
+		System.out.println("Add:: "+(a[0]+a[1]));//"100" "200"
+		
+		/*
+		 * Primitive Type	Wrapper classes
+		 * 
+			boolean			Boolean
+			char			Character
+			byte			Byte
+			short			Short
+			int				Integer
+			long			Long
+			float			Float
+			double			Double
+		 */
+		//Integer Wrapper classes:: Convert String Object to Integer Object(int PRIMITIVE)
+		//parseInt is a static method
+		//NON STATIC METHOD :: OBJECTNAME.METHODNAME
+		//STATIC METHOD :: CLASSNAME.METHODNAME
+
+		//100 200
+		System.out.println("Add:: "+(((Integer.parseInt(a[0]))+(Integer.parseInt(a[1])))));//classname.methodname
+
+	}
+
+}
+/*
+CmdLine Length:: 2
+Argument[0]:900
+Argument[1]:930
+Add:: 900930
+Add:: 1830
+*/
+========================================================================================
+package mydemos;
+/*
+ *  A class is a group of objects which have common properties. 
+ *  It is a template or blueprint from which objects are created
+ *  A class is a user-defined type 
+ */
+
+public class Vendor {
+	//4 access specifier:: public,private,protected(inheritance), default or package(invisible)
+
+	/*instance(object)(variable which is declared inside the class) 
+	 always have DEFAULT VALUES
+	*/
+		/*
+		 * int=0,float=0.0,boolean=false,String=null
+		 */
+
+	private int vendorid;
+	public String vendorname;
+	String place;//default or package access specifier
+	int a,b;//default or package access specifier
+	//All These methods are called as "NON STATIC METHODS"
+
+	public void display()
+	{
+		System.out.println("My Java First Method Loaded!");
+	}
+	private float multiply(float x)
+	{
+		return x*x;
+	}
+	public void showrecord()
+	{
+		System.out.println("Vendor:: "+vendorid+ " "+vendorname+ " "+place);
+	}
+	void add(int x,int y)//default access specifier, x and y are local variables 
+	{
+		a=x;
+		b=y;
+		System.out.println("Add:: "+(a+b));
+	}
+
+	//Below is a static method
+	public static void main(String[] args) {
+		Vendor v1=new Vendor();
+		v1.display();
+		v1.showrecord();//objectname.methodname
+		v1.vendorid=1001;
+		v1.vendorname="Dell";
+		v1.place="Chennai";
+		v1.showrecord();//objectname.methodname
+
+		float result=v1.multiply(1.1F);
+		System.out.println("Mul:: "+result);
+		System.out.println("Mul:: "+v1.multiply(1.2f));
+
+
+		//dynamic memory allocation
+		System.out.println("Mul:: "+new Vendor().multiply(1.2f));
+		new Vendor().display();	
+
+		System.out.println("Before ADD():: "+v1.a + " "+v1.b);
+		v1.add(12, 10);//x,y
+		System.out.println("After ADD():: "+v1.a + " "+v1.b);
+		
+		//default values ONLY for instance variable
+		//local variable require explicit initialization
+	
+		int c=100;
+		System.out.println("Main Method(Local Variable)::: "+c);
+		
+	}
+
+}
+/*
+My Java First Method Loaded!
+Vendor:: 0 null null
+Vendor:: 1001 Dell Chennai
+Mul:: 1.21
+Mul:: 1.44
+Mul:: 1.44
+My Java First Method Loaded!
+Before ADD():: 0 0
+Add:: 22
+After ADD():: 12 10
+Main Method(Local Variable)::: 100
+*/
+================================================================================================
+package mydemos;
+/*Polymorphism(many forms)::
+ * Method Overloading(If a class has multiple methods having same name but different in parameters, 
+ * it is known as 
+ * Method Overloading)::
+ *--number of arguments
+  -- order of arguments
+  --data type of arguments
+  
+ Method overloading is not possible by changing the return type of the method
+only!!!!
+
+ */
+
+public class MethodOverloadingDemo {
+	//instance variable
+	String personname;
+	long contact1;
+	long contact2;
+	int a,b;
+
+	//this keyword=>refers current class instance variable or method
+	//this keyword eliminate confusion between instance and local variable names, if same!
+
+	void calc(int a,int b)//local variable!
+	{
+		testing();	//one method calling another method		
+		this.testing();//optional but it is valid
+
+		//LHS=>INSTANCE VARIABLE,RHS=>LOCAL VARIABLE
+		this.a=a;
+		this.b=b;
+				
+	}
+	void testing()
+	{
+		System.out.println("Testing Method loaded!");
+	}
+	void showrec(String x,long y)//2 args
+	{
+//		personname=x;//valid
+			//contact1=y;//valid
+			//here this keyword is optional
+			this.personname=x;
+			this.contact1=y;
+			System.out.println("Res:: "+personname+ " "+contact1);
+	}
+	void showrec(String x,long y,long z)
+	{
+		this.personname=x;//here optional
+		contact1=y;
+		contact2=z;
+		System.out.println("Res:: "+personname+ " "+contact1+ " "+contact2);
+	}
+	void showrec(long x,long y,String z)//3 args->datatypes are same. but order is different!
+	{
+		contact1=x;
+		contact2=y;
+		personname=z;
+		System.out.println("Res:: "+personname+ " "+contact1+ " "+contact2);	
+	}
+	/*int showrec(long x,long y,String z)//3 args
+	{
+	}*/
+	public static void main(String[] args) {
+		MethodOverloadingDemo obj1=new MethodOverloadingDemo();
+		System.out.println("Before calc():: "+obj1.a + " "+obj1.b);
+		obj1.calc(12, 10);//calc() internally calls testing()!!
+		System.out.println("After calc():: "+obj1.a + " "+obj1.b);
+		obj1.showrec("Devi", 9789962180L,98404045003L);//2nd version
+		obj1.showrec("Devi", 9789962180L);//1st version
+		obj1.showrec(9789962180l, 9840405003L, "Thananya");//3rd version
+	}
+
+}
+/*
+Before calc():: 0 0
+Testing Method loaded!
+Testing Method loaded!
+After calc():: 12 10
+Res:: Devi 9789962180 98404045003
+Res:: Devi 9789962180
+Res:: Thananya 9789962180 9840405003
+*/
+================================================================================================================
+package mydemos;
+
+import java.util.Scanner;
+
+//Read the input 
+
+public class Inputs {
+	public static void main(String[] args) {
+		Scanner s1=new Scanner(System.in);//in is a reserved object of InputStream(java.io)
+
+		System.out.println("Enter ENO:: ");
+		int eno1=s1.nextInt();
+		
+		s1.nextLine();
+		
+		System.out.println("Enter Employeename:: ");
+		//String name=s1.next();//considered the spaces (only first value considered)!
+		String name=s1.nextLine();
+					
+		System.out.println("Enter Salary: ");
+		float salary=s1.nextFloat();
+
+		System.out.println("Emp::: " +eno1+ " "+name+ " "+salary);
+		System.out.printf("%d %s %f", eno1,name,salary);//similar to native c language
+
+		System.out.printf("%n %b",(13>45));//\n=>new line,b=>boolean
+
+	}
+
+}
+/*
+Enter ENO:: 
+111
+Enter Employeename:: 
+Lakshmi Praba Sai
+Enter Salary: 
+42394
+Emp::: 111 Lakshmi Praba Sai 42394.0
+111 Lakshmi Praba Sai 42394.000000
+ false*/
+==========================================================================================================
